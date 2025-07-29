@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свадебное приглашение</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('https://images.unsplash.com/photo-1529639348650-6254f6d0c4be') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0.2em 0;
+    }
+    h2 {
+      font-size: 2em;
+      margin: 0.2em 0;
+    }
+    .countdown {
+      font-size: 1.5em;
+      margin: 1em 0;
+    }
+    .info {
+      font-size: 1.2em;
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>05 | 08 | 2025</h1>
+    <h2>Wedding Day</h2>
+    <h2>Сохибчон и Адолат</h2><div class="countdown" id="countdown"></div>
+
+<div class="info">
+  <p><strong>Время:</strong> 18:00</p>
+  <p><strong>Место:</strong> Муроду Максад Премиум Холл</p>
+</div>
+
+  </div>  <script>
+    const countdownEl = document.getElementById('countdown');
+    const weddingDate = new Date('2025-08-05T18:00:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = 'Свадьба уже началась!';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
